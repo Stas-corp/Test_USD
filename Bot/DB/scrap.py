@@ -19,11 +19,13 @@ class Scraper:
             return result
         except:
             print(f'No Response')
-            return False
     
     def search_price(self):
-        self.soup = BeautifulSoup(self.response(self.url).text, 'lxml')
-
+        scr = self.response(self.url)
+        if scr:
+            self.soup = BeautifulSoup(scr.text, 'lxml')
+        else:
+            raise AttributeError
         price = self.soup.find('div', class_='YMlKec fxKbKc')
         print(price.text)
         return price.text
