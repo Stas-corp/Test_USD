@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 price_data.db
 result
+Bot/__token__.py
